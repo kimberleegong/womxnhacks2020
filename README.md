@@ -1,1 +1,0 @@
-# womxnhacks2020
