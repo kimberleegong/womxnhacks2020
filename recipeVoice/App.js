@@ -24,6 +24,8 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
+import  InputVoice  from './inputVoice';
+
 const App: () => React$Node = () => {
   return (
     <>
@@ -35,6 +37,8 @@ const App: () => React$Node = () => {
             <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
                     <Text>Hello, recipe!</Text>
                   </View>
+             <InputVoice
+                />
         </ScrollView>
       </SafeAreaView>
     </>
