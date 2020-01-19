@@ -11,22 +11,39 @@ class inputVoice extends Component {
     constructor(props) {
         super(props)
         this.state = {
-           speech: 'say this super well oof',
+           foo: 'cheese',
            recipeURL: '',
            results: [],
            instructions: ['Fake instructions','do some stuff', 'crack 3 eggs'],
+           currentInstruction: 0,
        };
 
         Voice.onSpeechResults = this.onSpeechResults.bind(this);
     }
 
     onSpeechResults(e){
+
         this.setState({
         results: e.value})
+
+               for(let i = 0; i < e.value.length; i++){
+                      if(e.value[i] == 'back' || e.value[i] == 'go back' || e.value[i] == 'go back'){
+                        Alert.alert('oh');
+                      }
+                      if(e.value[i] == 'next' || e.value[i] == 'skip'){
+                                              Alert.alert('oh');
+                      }
+               }
+
     }
 
   onSpeechStart(e) {
+
+//            for(let i = 0; i < this.state.instructions; i++){
+//                Alert.alert('vaya')
+//            }
             Voice.start('en-US');
+
 
   }
 
@@ -36,11 +53,11 @@ class inputVoice extends Component {
 
    onChangeText(e){
         this.setState({recipeURL: e.value});
-        Alert.alert(e.value);
+
    }
 
-   instructionsToSpeech(){
-   Tts.speak('crack 3 eggs')
+   readInstruction(i){
+    Tts.speak(i)
    }
 
 
@@ -65,10 +82,7 @@ class inputVoice extends Component {
                        onPress={this.onSpeechEnd.bind()}
                                         />
 
-                                        <Button
-                                                               title="Speak to me"
-                                                               onPress={this.instructionsToSpeech.bind()}
-                                                                                />
+
               {this.state.results.map( (text, index) => {
               return(
                 <Text key = {index}>{text}</Text>
