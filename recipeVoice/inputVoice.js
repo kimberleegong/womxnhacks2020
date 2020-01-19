@@ -62,7 +62,7 @@ class inputVoice extends Component {
               )
 
               })}
-              <Text>URL: {this.state.recipeURL}</Text>
+              
         </View>
 
         )
