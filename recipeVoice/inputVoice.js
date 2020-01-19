@@ -27,11 +27,30 @@ class inputVoice extends Component {
         results: e.value})
 
                for(let i = 0; i < e.value.length; i++){
-                      if(e.value[i] == 'back' || e.value[i] == 'go back' || e.value[i] == 'go back'){
-                        Alert.alert('oh');
+                      if(e.value[i] == 'back' || e.value[i] == 'go back' || e.value[i] == 'previous'){
+
+                        this.setState({currentInstruction: this.state.currentInstruction-1});
+
+                        if(this.state.currentInstruction < 0){
+                            Tts.speak("This is the first step");
+                            this.setState({currentInstruction: 0});
+                                                 }
+                         else{
+                            Tts.speak(this.state.instructions[this.state.currentInstruction]);
+                                                 }
                       }
                       if(e.value[i] == 'next' || e.value[i] == 'skip'){
-                                              Alert.alert('oh');
+
+                         this.setState({currentInstruction: this.state.currentInstruction+1});
+
+                         if(this.state.currentInstruction > e.value.length){
+                            Tts.speak("You've reached the end of the recipe");
+                            this.setState({currentInstruction: e.value.length});
+                         }
+                         else{
+                            Tts.speak(this.state.instructions[this.state.currentInstruction]);
+                         }
+
                       }
                }
 
@@ -39,9 +58,6 @@ class inputVoice extends Component {
 
   onSpeechStart(e) {
 
-//            for(let i = 0; i < this.state.instructions; i++){
-//                Alert.alert('vaya')
-//            }
             Voice.start('en-US');
 
 
