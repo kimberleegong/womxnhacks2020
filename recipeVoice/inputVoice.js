@@ -8,17 +8,22 @@ Tts.setDefaultLanguage('en-US');
 
 class inputVoice extends Component {
 
+
     constructor(props) {
         super(props)
         this.state = {
            foo: 'cheese',
            recipeURL: '',
            results: [],
-           instructions: ['Fake instructions','do some stuff', 'crack 3 eggs'],
+           instructions: ['Fake instructions','do some stuff', 'crack 3 eggs', 'oof', 'do whatever you want', 'finale'],
            currentInstruction: 0,
        };
 
         Voice.onSpeechResults = this.onSpeechResults.bind(this);
+    }
+
+    componentDidMount(){
+        Tts.speak('Ready to cook?');
     }
 
     onSpeechResults(e){
@@ -27,6 +32,9 @@ class inputVoice extends Component {
         results: e.value})
 
                for(let i = 0; i < e.value.length; i++){
+                      if(e.value[i] == 'ready'){
+                        Tts.speak(this.state.instructions[this.state.currentInstruction]);
+                      }
                       if(e.value[i] == 'back' || e.value[i] == 'go back' || e.value[i] == 'previous'){
 
                         this.setState({currentInstruction: this.state.currentInstruction-1});
@@ -38,6 +46,7 @@ class inputVoice extends Component {
                          else{
                             Tts.speak(this.state.instructions[this.state.currentInstruction]);
                                                  }
+                          e.value = [];
                       }
                       if(e.value[i] == 'next' || e.value[i] == 'skip'){
 
@@ -50,16 +59,22 @@ class inputVoice extends Component {
                          else{
                             Tts.speak(this.state.instructions[this.state.currentInstruction]);
                          }
+                         e.value = [];
 
                       }
                }
+               setTimeout(function(){
+
+                     //Put All Your Code Here, Which You Want To Execute After Some Delay Time.
+
+                      Voice.start('en-US');
+                   }, 3000);
+
 
     }
 
   onSpeechStart(e) {
-
-            Voice.start('en-US');
-
+      Voice.start('en-US');
 
   }
 
