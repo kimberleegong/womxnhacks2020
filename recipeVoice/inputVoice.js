@@ -3,6 +3,8 @@ import React from 'react';
 import { Component } from 'react';
 import { StyleSheet, Text, TextInput, View, Button, Image, TouchableHighlight, Alert } from 'react-native';
 import Voice from 'react-native-voice';
+import Tts from 'react-native-tts';
+Tts.setDefaultLanguage('en-US');
 
 class inputVoice extends Component {
 
@@ -12,6 +14,7 @@ class inputVoice extends Component {
            speech: 'say this super well oof',
            recipeURL: '',
            results: [],
+           instructions: ['Fake instructions','do some stuff', 'crack 3 eggs'],
        };
 
         Voice.onSpeechResults = this.onSpeechResults.bind(this);
@@ -24,6 +27,7 @@ class inputVoice extends Component {
 
   onSpeechStart(e) {
             Voice.start('en-US');
+
   }
 
   onSpeechEnd() {
@@ -33,6 +37,10 @@ class inputVoice extends Component {
    onChangeText(e){
         this.setState({recipeURL: e.value});
         Alert.alert(e.value);
+   }
+
+   instructionsToSpeech(){
+   Tts.speak('crack 3 eggs')
    }
 
 
@@ -56,13 +64,18 @@ class inputVoice extends Component {
                        title="Stop"
                        onPress={this.onSpeechEnd.bind()}
                                         />
+
+                                        <Button
+                                                               title="Speak to me"
+                                                               onPress={this.instructionsToSpeech.bind()}
+                                                                                />
               {this.state.results.map( (text, index) => {
               return(
                 <Text key = {index}>{text}</Text>
               )
 
               })}
-              
+
         </View>
 
         )
