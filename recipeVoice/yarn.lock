@@ -3781,11 +3781,9 @@ json-stringify-safe@~5.0.1:
   integrity sha1-Epai1Y/UXxmg9s4B1lcB4sc1tus=
 
 json5@^2.1.0:
-  version "2.1.1"
-  resolved "https://registry.yarnpkg.com/json5/-/json5-2.1.1.tgz#81b6cb04e9ba496f1c7005d07b4368a2638f90b6"
-  integrity sha512-l+3HXD0GEI3huGq1njuqtzYK8OYJyXMkOLtQ53pjWh89tvWS2h6l+1zMkYWqlb57+SiQodKZyvMEFb2X+KrFhQ==
-  dependencies:
-    minimist "^1.2.0"
+  version "2.2.3"
+  resolved "https://registry.yarnpkg.com/json5/-/json5-2.2.3.tgz#78cd6f1a19bdc12b73db5ad0c61efd66c1e29283"
+  integrity sha512-XmOWe7eyHYH14cLdVPoyg+GOH3rYX++KpzrylJwSW98t3Nk+U8XOl8FWKOgwtzdb8lXGf6zYwDUzeHMWfxasyg==
 
 jsonfile@^2.1.0:
   version "2.4.0"
@@ -5026,6 +5024,21 @@ react-is@^16.8.1, react-is@^16.8.4, react-is@^16.9.0:
   version "16.12.0"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.12.0.tgz#2cc0fe0fba742d97fd527c42a13bec4eeb06241c"
   integrity sha512-rPCkf/mWBtKc97aLL9/txD8DZdemK0vkA3JMLShjlJB3Pj3s+lpf1KaBzMfQrAmhMQB0n1cU/SUGgKKBCe837Q==
+
+react-native-speech@^0.1.2:
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/react-native-speech/-/react-native-speech-0.1.2.tgz#c16127c6a61351eeddb7878db80709f7ce6a7057"
+  integrity sha512-xvlprcToIE7xUcjy6mJKvZKGbStc79uXPGhUTzOmP6c456h2K7JAQ6QrVBByKNT6Y4ThEmT4PxsRLyCpixcIAQ==
+
+react-native-tts@^3.1.1:
+  version "3.3.0"
+  resolved "https://registry.yarnpkg.com/react-native-tts/-/react-native-tts-3.3.0.tgz#563e5a2ecc35bca9e66e05e020ad8dce9432b253"
+  integrity sha512-ebPMDrMYYlh/A7MI0qUWgWFpORYuGJ/u6acOLclZC56CD5dv3IUI+sQKQEX4nFZTaXkGMdibX4uqtBjpGHWhaA==
+
+react-native-voice@^0.3.0:
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/react-native-voice/-/react-native-voice-0.3.0.tgz#2ca3ff8f8f6fc6d087e10b6d3ecd50af8e01a166"
+  integrity sha512-puSrXCNn1MM03UZkY8q+GW931OqBCEBCiupNK4vD8i49esGqRDDmzv8sRYyEgXj5ScVDKe6lnlKCmJSn5Wo2UA==
 
 react-native@0.61.5:
   version "0.61.5"
